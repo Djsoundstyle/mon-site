@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJ Sparrow - L'ambiance parfaite pour vos événements</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+        }
+        
+        .neon-text {
+            text-shadow: 0 0 10px rgba(255, 0, 255, 0.7), 
+                         0 0 20px rgba(255, 0, 255, 0.5);
+        }
+        
+        .neon-border {
+            box-shadow: 0 0 10px rgba(255, 0, 255, 0.7), 
+                        inset 0 0 10px rgba(255, 0, 255, 0.3);
+            border: 1px solid rgba(255, 0, 255, 0.5);
+        }
+        
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+        }
+        
+        .testimonial-card {
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(10px);
+        }
+        
+        input, textarea {
+            background: rgba(30, 30, 30, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: rgba(255, 0, 255, 0.7);
+            box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #ff00ff, #9900ff);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 0, 255, 0.4);
+        }
+        
+        .mobile-menu {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black bg-opacity-80 backdrop-filter backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold neon-text">DJ SPARROW</span>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-white hover:text-purple-300 px-3 py-2 rounded-md text-sm font-medium transition">Accueil</a>
+                        <a href="#about" class="text-white hover:text-purple-300 px-3 py-2 rounded-md text-sm font-medium transition">À propos</a>
+                        <a href="#services" class="text-white hover:text-purple-300 px-3 py-2 rounded-md text-sm font-medium transition">Prestations</a>
+                        <a href="#gallery" class="text-white hover:text-purple-300 px-3 py-2 rounded-md text-sm font-medium transition">Galerie</a>
+                        <a href="#testimonials" class="text-white hover:text-purple-300 px-3 py-2 rounded-md text-sm font-medium transition">Avis</a>
+                        <a href="#contact" class="text-white hover:text-purple-300 px-3 py-2 rounded-md text-sm font-medium transition">Contact</a>
+                    </div>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-white focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="mobile-menu hidden md:hidden fixed inset-0 w-full h-full z-40 pt-20">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
+                <a href="#home" class="text-white block px-3 py-4 rounded-md text-base font-medium w-full text-center">Accueil</a>
+                <a href="#about" class="text-white block px-3 py-4 rounded-md text-base font-medium w-full text-center">À propos</a>
+                <a href="#services" class="text-white block px-3 py-4 rounded-md text-base font-medium w-full text-center">Prestations</a>
+                <a href="#gallery" class="text-white block px-3 py-4 rounded-md text-base font-medium w-full text-center">Galerie</a>
+                <a href="#testimonials" class="text-white block px-3 py-4 rounded-md text-base font-medium w-full text-center">Avis</a>
+                <a href="#contact" class="text-white block px-3 py-4 rounded-md text-base font-medium w-full text-center">Contact</a>
+                
+                <div class="flex space-x-6 mt-8">
+                    <a href="#" class="text-white hover:text-purple-300">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-purple-300">
+                        <i class="fab fa-soundcloud text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-purple-300">
+                        <i class="fab fa-mixcloud text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-purple-300">
+                        <i class="fab fa-facebook text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                 alt="DJ Sparrow en action" 
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 neon-text">DJ SPARROW</h1>
+            <p class="text-xl md:text-2xl mb-8 font-light">L'ambiance parfaite, au bon moment.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact" class="btn-primary text-white px-8 py-3 rounded-full font-semibold text-lg">Réserver</a>
+                <a href="#services" class="bg-transparent border border-white text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-white hover:text-black transition">Nos prestations</a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-0 right-0 text-center">
+            <a href="#about" class="text-white animate-bounce inline-block">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gradient-to-b from-black to-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">À PROPOS</h2>
+                <div class="w-20 h-1 bg-purple-500 mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 relative">
+                    <div class="neon-border rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" 
+                             alt="DJ Sparrow" 
+                             class="w-full h-auto object-cover">
+                    </div>
+                    <div class="absolute -bottom-5 -right-5 bg-purple-600 text-white px-6 py-3 rounded-full font-bold text-sm">
+                        Depuis 2010
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-6">Transformer vos événements en expériences inoubliables</h3>
+                    <p class="text-gray-300 mb-6">
+                        DJ Sparrow, de son vrai nom Sandro, est un passionné de musique depuis son plus jeune âge. 
+                        Avec plus de 10 ans d'expérience dans l'animation musicale, il a su développer un style unique 
+                        qui marie harmonieusement tous style de musique.
+                    </p>
+                    <p class="text-gray-300 mb-8">
+                        Ce qui distingue DJ Sparrow, c'est sa capacité à ressentir l'énergie d'une foule et à adapter 
+                        sa playlist en temps réel pour créer une ambiance parfaite. Que ce soit pour un mariage élégant 
+                        ou une soirée corporate endiablée, il sait exactement quels morceaux choisir pour faire vibrer 
+                        votre public.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center">
+                            <div class="bg-purple-500 rounded-full p-2 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <span class="text-gray-300">Équipement professionnel</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-purple-500 rounded-full p-2 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <span class="text-gray-300">Large répertoire musical</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-purple-500 rounded-full p-2 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <span class="text-gray-300">Éclairages et effets</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-purple-500 rounded-full p-2 mr-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <span class="text-gray-300">Adaptation au public</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#gallery" class="bg-transparent border border-white text-white px-6 py-2 rounded-full font-medium text-sm hover:bg-white hover:text-black transition">Voir en action</a>
+                        <a href="#contact" class="bg-white text-black px-6 py-2 rounded-full font-medium text-sm hover:bg-purple-100 transition">Contact rapide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">NOS PRESTATIONS</h2>
+                <div class="w-20 h-1 bg-purple-500 mx-auto"></div>
+                <p class="text-gray-300 mt-6 max-w-2xl mx-auto">
+                    DJ Sparrow propose des prestations sur mesure adaptées à tous types d'événements. 
+                    Découvrez nos services et trouvez celui qui correspond à vos besoins.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden transition-all hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" 
+                             alt="Mariages" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Mariages</h3>
+                        <p class="text-gray-300 mb-4">
+                            Une ambiance élégante et personnalisée pour votre grand jour. 
+                            De la cérémonie au cocktail jusqu'au dîner et la soirée dansante.
+                        </p>
+                        <div class="text-purple-400 font-medium"></div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden transition-all hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                             alt="Anniversaires" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Anniversaires</h3>
+                        <p class="text-gray-300 mb-4">
+                            Fêtez votre anniversaire en musique avec une playlist adaptée à vos goûts 
+                            et à ceux de vos invités. Une soirée inoubliable garantie!
+                        </p>
+                        <div class="text-purple-400 font-medium"></div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden transition-all hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                             alt="Soirées privées" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Soirées privées</h3>
+                        <p class="text-gray-300 mb-4">
+                            Que ce soit pour une soirée entre amis ou un événement particulier, 
+                            DJ Sparrow saura créer l'ambiance parfaite pour votre fête.
+                        </p>
+                        <div class="text-purple-400 font-medium"></div>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden transition-all hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                             alt="Evenements entreprises" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Evenements entreprises</h3>
+                        <p class="text-gray-300 mb-4">
+                            Pour événements d'entreprises, créant une ambiance unique et sur-mesure pour vos séminaires, soirées et team-building.
+                        </p>
+                        <div class="text-purple-400 font-medium"></div>
+                    </div>
+                </div>
+                
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">GALERIE</h2>
+                <div class="w-20 h-1 bg-purple-500 mx-auto"></div>
+                <p class="text-gray-300 mt-6 max-w-2xl mx-auto">
+                    Quelques moments capturés lors de précédents événements. 
+                    Laissez-vous inspirer par ces ambiances uniques.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Image 1 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="Concert" 
+                         class="w-full h-full object-cover">
+                </div>
+                
+                <!-- Image 2 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="Foule en concert" 
+                         class="w-full h-full object-cover">
+                </div>
+                
+                <!-- Image 3 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1633102467628-6511a5129a03?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                         alt="DJ en action" 
+                         class="w-full h-full object-cover">
+                </div>
+                
+                <!-- Image 4 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                         alt="Lumières de concert" 
+                         class="w-full h-full object-cover">
+                </div>
+
+                <!-- Image 5 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1526979118433-63c7344f06f1?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                         alt="Lumières de concert" 
+                         class="w-full h-full object-cover">
+                </div>
+                
+                
+                <!-- Image 6 -->
+                <div class="gallery-item rounded-lg overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="Soirée dansante" 
+                         class="w-full h-full object-cover">
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center text-purple-400 hover:text-purple-300">
+                    <span>Voir plus sur Instagram</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gradient-to-b from-gray-900 to-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">AVIS CLIENTS</h2>
+                <div class="w-20 h-1 bg-purple-500 mx-auto"></div>
+                <p class="text-gray-300 mt-6 max-w-2xl mx-auto">
+                    Ce que nos clients disent de leur expérience avec DJ Sparrow
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Marie D." class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Marie D.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">
+                        "DJ Sparrow a su créer une ambiance parfaite pour notre mariage. 
+                        Il a écouté nos demandes et a su adapter la musique à nos invités. 
+                        La piste de danse n'a jamais été vide!"
+                    </p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Thomas L." class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Thomas L.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">
+                        "Pour les 30 ans de ma femme, nous avons fait appel à DJ Sparrow. 
+                        Il a su mixer les styles musicaux pour satisfaire tous nos invités. 
+                        Professionnel et très sympa, je recommande vivement!"
+                    </p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sophie M." class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sophie M.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300">
+                        "Notre soirée d'entreprise a été un succès grâce à DJ Sparrow. 
+                        Il a su créer une ambiance professionnelle tout en permettant à 
+                        nos collaborateurs de se détendre. Matériel de qualité et service irréprochable."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">CONTACT</h2>
+                <div class="w-20 h-1 bg-purple-500 mx-auto"></div>
+                <p class="text-gray-300 mt-6 max-w-2xl mx-auto">
+                    Prêt à transformer votre événement en une expérience mémorable? 
+                    Contactez DJ Sparrow pour discuter de votre projet.
+                </p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Votre nom</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg text-white">
+                        </div>
+                        
+                        <div>
+                            <label for="event" class="block text-sm font-medium text-gray-300 mb-1">Type d'événement</label>
+                            <select id="event" name="event" class="w-full px-4 py-3 rounded-lg text-white">
+                                <option value="">-- Sélectionnez --</option>
+                                <option value="wedding">Mariage</option>
+                                <option value="birthday">Anniversaire</option>
+                                <option value="private">Soirée privée</option>
+                                <option value="corporate">Événement d'entreprise</option>
+                                <option value="other">Autre</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="date" class="block text-sm font-medium text-gray-300 mb-1">Date de l'événement</label>
+                            <input type="date" id="date" name="date" class="w-full px-4 py-3 rounded-lg text-white">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Votre message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 rounded-lg text-white"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary w-full py-3 rounded-lg font-semibold text-lg">Envoyer la demande</button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-900 p-8 rounded-lg h-full">
+                        <h3 class="text-2xl font-bold mb-6">Coordonnées</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-purple-600 p-2 rounded-full mr-4 mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-lg">Zone de couverture</h4>
+                                    <p class="text-gray-300">Chaponost<br>Déplacements possibles</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-purple-600 p-2 rounded-full mr-4 mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-lg">Téléphone</h4>
+                                    <p class="text-gray-300">+33 6 27 20 44 10 </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-purple-600 p-2 rounded-full mr-4 mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-lg">Disponibilité</h4>
+                                    <p class="text-gray-300">Réponse sous 24h<br>7j/7 de 9h à 20h</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-12">
+                            <h4 class="font-medium text-lg mb-4">Suivez DJ Sparrow</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-gray-800 text-white p-3 rounded-full hover:bg-purple-600 transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="bg-gray-800 text-white p-3 rounded-full hover:bg-purple-600 transition">
+                                    <i class="fab fa-soundcloud"></i>
+                                </a>
+                                <a href="#" class="bg-gray-800 text-white p-3 rounded-full hover:bg-purple-600 transition">
+                                    <i class="fab fa-mixcloud"></i>
+                                </a>
+                                <a href="#" class="bg-gray-800 text-white p-3 rounded-full hover:bg-purple-600 transition">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="bg-gray-800 text-white p-3 rounded-full hover:bg-purple-600 transition">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-2xl font-bold neon-text">DJ SPARROW</span>
+                    <p class="text-gray-400 mt-2">L'ambiance parfaite, au bon moment.</p>
+                </div>
+                
+                <div class="flex flex-col items-center md:items-end">
+                    <div class="flex space-x-6 mb-4">
+                        <a href="#home" class="text-gray-400 hover:text-white transition">Accueil</a>
+                        <a href="#about" class="text-gray-400 hover:text-white transition">À propos</a>
+                        <a href="#services" class="text-gray-400 hover:text-white transition">Prestations</a>
+                        <a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a>
+                    </div>
+                    <p class="text-gray-500 text-sm">© 2025 DJ Sparrow. Tous droits réservés.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+        
+        // Smooth scrolling for all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
